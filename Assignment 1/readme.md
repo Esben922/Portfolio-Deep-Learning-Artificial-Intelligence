@@ -1,6 +1,5 @@
-# Portfolio-Deep-Learning-Artificial-Intelligence
+# Assignment 1: 
 
-Assignment 1: 
 Hello and welcome to an analysis of the stock development of Apple Inc. This repository aims to analyse different deep learning subjects through similar approaches in the hopes of discovering underlying and embedded patterns in the listed data. 
 
 We worked together in a group of three consisting of Esben Graahede, Frederik Lauritzen and Mathias Juul. We sat down and worked together, so there are not any particular parts that one person spearheaded.
