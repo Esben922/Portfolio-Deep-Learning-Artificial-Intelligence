@@ -18,13 +18,7 @@ This project integrates multiple tools to provide a structured AI-powered pipeli
 
 ## Team Members
 
-This project was developed collaboratively by:
-
-- **Esben Münster Graahede**  
-- **Frederik Emil Lauritzen**  
-- **Mathias Salomonsen Juul**  
-
-Each member contributed to **coding, testing, and documentation** as a joint effort, with no specific sections attributed to one person.
+This project was developed collaboratively by Esben Münster Graahede, Frederik Emil Lauritzen & Mathias Salomonsen Juul, with each member contributing to coding, testing, and documentation. The work was conducted as a joint effort, with no specific sections being solely attributed to one person.
 
 ---
 
