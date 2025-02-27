@@ -1,28 +1,122 @@
-Business Consultant
-We want to create an agentic system which provides management with an objective evaluation of a potential business idea. The model will be based on the premise of it being either an existing company, or at the very least a company with a thought out business plan. This application will add value in the evaluation of potential business ideas by gathering  external information in the realm of the proposed business idea. The Agentic system is based on Openai’s Large Language Models, particularly their 3.5 Turbo model. 
-The product is also based on the functions of crewAI and their approach to multi-agent systems. The overall set-up consists of 2 crews. The first crew has one agent focused on using a search tool (Duck-duck-go) to gather relevant information. The other agent in the first crew is focused on using its own knowledge and the information gathered by the first agent to collect as much relevant information as possible based on the user’s provided business idea. The second crew is focused on a discussion of the viability of the potential business idea based on the user-provided strategy of their firm. The aim of the second crew is to discuss the potential Business idea in the user-provided-context in relation to specific fields and highlighted theories. The roles in the second crew are as follows:
-Economical - The economic aspect of thee discussion is based on Cost-Benefit-Analysis (CBA). Using this theory the agent will focus on potential gains and losses and value them relative to each other in a discussion format.
-Strategic - The economic aspect of the discussion is based on Ansoff's Growth Strategies. Using this framework, the agent will analyze potential growth opportunities by evaluating market penetration, product development, market development, and diversification, comparing their risks and benefits in a discussion format.
-Marketing - Value proposition canvas (VPC).
-An agent can use the VPC to better understand customer needs by analyzing their pains, jobs, and gains. It can then tailor its responses and solutions, aligning with the customer’s expectations and offering personalized value. This ensures more effective communication and problem-solving, enhancing customer satisfaction.
-Finetuning implementation:
-RAG: Retrieval-Augmented Generation enhances AI responses by fetching relevant external information before generating answers, creating more accurate and informative outputs. This method is implemented by Agent 1 in Crew 1.
-Self-consistency: Self-consistency improves reasoning by generating multiple independent solutions to the same problem and selecting the most common answer. This approach is utilized in Task 2 of Crew 1.
-N-shot: N-shot prompting provides multiple examples of the desired input-output format before asking the AI to solve a new problem. Agent 1 in Crew 2 implements this method to establish clear patterns for the AI to follow.
-Chain of thought (C2-task 2 & C2-task 3): Chain of Thought prompting encourages the AI to break down complex reasoning into explicit intermediate steps, improving accuracy on tasks requiring multi-step logic. This technique is implemented in both Task 2 and Task 3 of Crew 2.
+# AI Business Consultant
 
-The repository includes a prototype deployment linking back end and frontend through FastAPI. The prototype is launched in streamlit which consists of the user-input-terminal and the output from the agentic system.To launch the application it is expected that the user wiil have a OpenAI API key and a Serper API key
+We want to create an agentic system which provides management with an objective evaluation of a potential business idea. The model will be based on the premise of it being either an existing company, or at the very least a company with a thought-out business plan. This application will add value in the evaluation of potential business ideas by gathering external information in the realm of the proposed business idea. The Agentic system is based on OpenAI’s Large Language Models, particularly their 3.5 Turbo model.
 
+The product is also based on the functions of CrewAI and their approach to multi-agent systems. The overall setup consists of **two crews**:
 
+## Crew 1: Research Crew
 
-The choice of business strategies:
-This advisor uses Cost-Benefit Analysis(CBA), Ansoff’s Matrix, and the Value Proposition Canvas (VPC) to ensure strategic alignment. CBA evaluates the financial feasibility of different strategies. Ansoff’s Matrix helps identify opportunities for market and product expansion. VPC ensures that the strategy creates real value for customers. Together, these tools support informed decision-making and risk management. They provide a structured approach to balancing growth and sustainability. This combination strengthens business strategy by aligning financial, market, and customer perspectives.
+- **Search Agent**: Uses a search tool (DuckDuckGo) to gather relevant information.
+- **Research Agent**: Uses its own knowledge and the information gathered by the Search Agent to collect as much relevant information as possible based on the user’s provided business idea.
 
-Cost-benefit Analysis (CBA)
-CBA is a decision-making tool used to evaluate the financial feasibility of a project or strategy. It involves identifying and quantifying all costs and benefits associated with a decision. Costs can include direct expenses, opportunity costs, and potential risks. Benefits may include increased revenue, cost savings, or intangible gains like customer satisfaction. Each cost and benefit is assigned a monetary value where possible. The total expected benefits are compared to the total expected costs. If benefits outweigh costs, the decision is considered financially viable. CBA helps businesses prioritize investments and allocate resources efficiently. It reduces the risk of making unprofitable or inefficient choices. Ultimately, CBA supports data-driven and rational decision-making.
+## Crew 2: Evaluation Crew
 
-Ansoff
-Ansoff’s Matrix is a strategic tool used to identify growth opportunities for businesses. It consists of four strategies: Market Penetration, Market Development, Product Development, and Diversification. Market Penetration focuses on increasing sales of existing products in existing markets. Market Development involves expanding into new markets with existing products. Product Development refers to creating new products for existing markets. Diversification is the riskiest strategy, introducing new products into new markets. The matrix helps businesses assess risk and choose the best growth approach. Lower-risk strategies like Market Penetration are preferred for stability, while Diversification offers high-risk, high-reward potential. It aligns business expansion with market conditions and company capabilities. Ansoff’s Matrix is widely used for structured, strategic decision-making.
+This crew discusses the viability of the potential business idea based on the user-provided strategy. The discussion is framed using specific fields and highlighted theories:
 
-Value Proposition Canvas (VPC)
-VPC is a strategic tool used to align products or services with customer needs. It consists of two main sections: the Customer Profile and the Value Map. The Customer Profile identifies customer jobs(tasks they need to accomplish), pains (challenges they face), and gains (desired benefits). The Value Map defines how a product or service creates pain relievers (solutions to challenges) and gain creators (added benefits). By matching the Value Map to the Customer Profile, businesses ensure they deliver real value. VPC helps refine offerings to meet customer expectations effectively. It reduces the risk of launching products that do not meet market needs. The tool is widely used for product development, marketing, and business strategy. Ultimately, VPC improves customer satisfaction and business success.
+### Roles in Crew 2:
+
+- **Economical Agent**  
+  - Based on **Cost-Benefit Analysis (CBA)**.  
+  - Evaluates potential gains and losses and values them relative to each other.
+
+- **Strategic Agent**  
+  - Based on **Ansoff's Growth Strategies**.  
+  - Analyzes potential growth opportunities by evaluating **market penetration, product development, market development, and diversification**.
+
+- **Marketing Agent**  
+  - Uses the **Value Proposition Canvas (VPC)**.  
+  - Analyzes customer needs by examining **pains, jobs, and gains**, ensuring customer alignment.
+
+---
+
+## Finetuning Implementation
+
+- **RAG (Retrieval-Augmented Generation)**:  
+  Enhances AI responses by fetching relevant external information before generating answers. Implemented by **Agent 1 in Crew 1**.
+
+- **Self-Consistency**:  
+  Improves reasoning by generating multiple independent solutions to the same problem and selecting the most common answer. Used in **Task 2 of Crew 1**.
+
+- **N-Shot Prompting**:  
+  Provides multiple examples of the desired input-output format before asking the AI to solve a new problem. Implemented by **Agent 1 in Crew 2**.
+
+- **Chain of Thought (C2-Task 2 & C2-Task 3)**:  
+  Encourages AI to break down complex reasoning into explicit intermediate steps, improving accuracy in multi-step logic tasks.
+
+---
+
+## Deployment
+
+The repository includes a **prototype deployment** linking backend and frontend through **FastAPI**. The prototype is launched in **Streamlit**, which consists of:
+
+- A **user input terminal**
+- The **output from the agentic system**
+
+---
+
+## How to Use the Artificial Business Consultant Agent
+
+To run the application, ensure you have:
+
+- **An OpenAI API key**
+- **A Serper API key** (stored in your environment variables)
+
+> **Note:** Running the code **will incur costs** due to OpenAI API usage, but these costs are minimal.
+
+---
+
+## Business Strategy Frameworks Used
+
+This advisor utilizes **Cost-Benefit Analysis (CBA)**, **Ansoff’s Matrix**, and the **Value Proposition Canvas (VPC)** to ensure strategic alignment.
+
+- **CBA** evaluates financial feasibility.
+- **Ansoff’s Matrix** identifies growth opportunities.
+- **VPC** ensures customer-centric value creation.
+
+These tools support **informed decision-making** and **risk management**, balancing growth and sustainability.
+
+---
+
+## Frameworks Explained
+
+### Cost-Benefit Analysis (CBA)
+CBA evaluates the financial feasibility of a project or strategy by identifying and quantifying all costs and benefits. 
+
+- **Costs**: Direct expenses, opportunity costs, and potential risks.  
+- **Benefits**: Increased revenue, cost savings, or intangible gains like customer satisfaction.  
+
+Each cost and benefit is assigned a monetary value where possible. If **benefits outweigh costs**, the decision is considered viable.  
+CBA supports **data-driven decision-making** and **resource allocation**.
+
+---
+
+### Ansoff’s Matrix
+A strategic tool that identifies growth opportunities through **four strategies**:
+
+1. **Market Penetration**: Increasing sales of existing products in existing markets.
+2. **Market Development**: Expanding into new markets with existing products.
+3. **Product Development**: Creating new products for existing markets.
+4. **Diversification**: Introducing new products into new markets (**highest risk**).
+
+This framework helps assess **risk levels** and select the best approach for business expansion.
+
+---
+
+### Value Proposition Canvas (VPC)
+A strategy tool aligning **products or services** with **customer needs**.
+
+- **Customer Profile**:
+  - **Jobs** (tasks customers need to accomplish)
+  - **Pains** (challenges customers face)
+  - **Gains** (desired benefits)
+
+- **Value Map**:
+  - **Pain Relievers** (solutions to challenges)
+  - **Gain Creators** (added benefits)
+
+Matching the **Value Map** to the **Customer Profile** ensures the product delivers **real value**.  
+VPC is widely used for **product development, marketing, and business strategy**.
+
+---
+
+By combining **CBA, Ansoff’s Matrix, and VPC**, businesses can create a well-balanced, sustainable, and customer-centric strategy.
