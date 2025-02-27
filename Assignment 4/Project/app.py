@@ -8,17 +8,14 @@ from crewai import Crew
 from agents import CustomAgents
 from tasks import CustomTasks
 
-# Load OpenAI API key
 os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
 os.environ["SERPER_API_KEY"] = config("SERPER_API_KEY")
 
-# Define request schema
 class BusinessIdeaRequest(BaseModel):
     business_idea: str
     company_vision: str
     budget: float
 
-# Initialize FastAPI app
 app = FastAPI(
     title="Business Idea Evaluation API",
     description="An agentic system for evaluating business ideas using Serper (Google Search API) and CrewAI.",

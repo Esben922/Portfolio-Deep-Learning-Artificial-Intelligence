@@ -3,6 +3,7 @@ from crewai import Task
 from textwrap import dedent
 
 class CustomTasks:
+    #Crew #1
     def search_task(self, agent, business_details):
         return Task(
             description=dedent(f"""
@@ -26,7 +27,6 @@ class CustomTasks:
             agent=agent,
         )
 
-    #Focus on Self-Consistency
     def research_task(self, agent):
         return Task(
             description=dedent("""
@@ -53,7 +53,8 @@ class CustomTasks:
             expected_output="A structured industry report summarizing trends, competition, risks, and demand.",
             agent=agent,
         )
-
+    #Crew #2
+    #Uses N-shot, but defined at the agent level
     def economic_analysis_task(self, agent, research_summary):
         return Task(
             description=dedent(f"""
@@ -128,7 +129,7 @@ class CustomTasks:
             expected_output="A strategic growth assessment of the business idea.",
             agent=agent,
         )
-    #CHain of thoughts (COT)
+    #Chain of thoughts (COT)
     def marketing_analysis_task(self, agent, research_summary):
         return Task(
             description=dedent(f"""
@@ -186,6 +187,7 @@ class CustomTasks:
             expected_output="A marketing analysis detailing customer value and market fit.",
             agent=agent,
         )
+    #Simple summarization agent
     def summarization_task(self, agent, economic_output, strategic_output, marketing_output):
         return Task(
             description=dedent(f"""

@@ -12,7 +12,8 @@ class CustomAgents:
         self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
 
         self.search_tool = SerperDevTool(n_results=3)
-
+    #Crew 1: Research Crew
+    #Serper search tool
     def search_agent(self):
         return Agent(
             role="Business Intelligence Researcher",
@@ -46,7 +47,7 @@ class CustomAgents:
                 }
         ]
         )
-
+    #Prompt engineered at the task-level
     def strategic_agent(self):
         return Agent(
             role="Strategy Consultant",
@@ -54,7 +55,7 @@ class CustomAgents:
             goal="Assess potential growth opportunities and risks of the business idea.",
             llm=self.OpenAIGPT35,
         )
-
+    #Prompt engineered at the task-level
     def marketing_agent(self):
         return Agent(
             role="Marketing Strategist",
@@ -62,7 +63,7 @@ class CustomAgents:
             goal="Analyze the business idea from a customer value perspective.",
             llm=self.OpenAIGPT35,
         )
-    
+    #Simple summarization agent
     def summarization_agent(self):
         return Agent(
             role="Business Evaluation Summarizer",

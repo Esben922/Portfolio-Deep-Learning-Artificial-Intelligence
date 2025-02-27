@@ -8,7 +8,7 @@ st.markdown("""
 Enter details about your business idea, including its vision and budget. The AI system will analyze it based on economic, strategic, and marketing perspectives.
 """)
 
-# Inputs
+#Inputs
 business_idea = st.text_area("Describe your business idea:")
 company_vision = st.text_area("What is the company vision?")
 budget = st.number_input("Enter your budget ($)", min_value=0, value=100000, step=5000)
