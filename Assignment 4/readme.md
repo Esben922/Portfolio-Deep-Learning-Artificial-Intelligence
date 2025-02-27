@@ -6,7 +6,7 @@ The product is also based on the functions of CrewAI and their approach to multi
 
 ## Crew 1: Research Crew
 
-- **Search Agent**: Uses a search tool (DuckDuckGo) to gather relevant information.
+- **Search Agent**: Uses a search tool (Serper) to gather relevant information.
 - **Research Agent**: Uses its own knowledge and the information gathered by the Search Agent to collect as much relevant information as possible based on the user’s provided business idea.
 
 ## Crew 2: Evaluation Crew
